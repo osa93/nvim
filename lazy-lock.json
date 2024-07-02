@@ -1,0 +1,12 @@
+{
+  "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
+  "lazy.nvim": { "branch": "main", "commit": "0507e19289539396313503f6eb6b02bbe8a5e483" },
+  "lazygit.nvim": { "branch": "main", "commit": "ad3e1ea592f9d13e86e0d4e850224d9d78069508" },
+  "nvim-treesitter": { "branch": "master", "commit": "f0e3b5c5fe38d0012c63368db90017fef87c85a2" },
+  "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "rose-pine": { "branch": "main", "commit": "9d7474f80afe2f0cfcb4fabfc5451f509d844b85" },
+  "telescope.nvim": { "branch": "master", "commit": "7bd2f9b72f8449780b79bcf351534e2cd36ec43a" },
+  "tokyonight.nvim": { "branch": "main", "commit": "30d7be361a7fbf187a881f17e574e9213d5108ea" },
+  "undotree": { "branch": "master", "commit": "a1758ba9990b7189f601a3a5acdfc8ca3907a700" },
+  "vscode.nvim": { "branch": "main", "commit": "46212834b32866ce45479f885ca82d2259044f46" }
+}
