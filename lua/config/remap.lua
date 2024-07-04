@@ -17,3 +17,15 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- open undoo tree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+-- cursor stays at its place when doing J
+vim.keymap.set('n', 'J', "mzJ`z")
+
+-- page up/down center the cursor in the middle
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+
+-- center screen on the next search result
+vim.keymap.set('n', 'n', "nzzzv")
+vim.keymap.set('n', 'N', "Nzzzv")
+
