@@ -6,7 +6,6 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim"
     },
-    
     lazy = false,
 
     config = function()
