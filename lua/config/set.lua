@@ -1,5 +1,3 @@
-
-
 -- TAB HAS 4 CHARACTERS
 vim.opt.tabstop = 4
 
@@ -34,5 +32,5 @@ vim.opt.scrolloff = 8
 -- stripe on column 80
 vim.opt.colorcolumn = "80"
 
--- KEEP WHAT YOU PASTED IN VISUAL MODE IN THE ANONYMOUS REGISTER
--- xnoremap <Leader>p "_dP
+-- Line numbers etc in Netrw
+vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
