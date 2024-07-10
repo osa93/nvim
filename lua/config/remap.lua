@@ -29,3 +29,12 @@ vim.keymap.set('n', '<C-u>', "<C-u>zz")
 vim.keymap.set('n', 'n', "nzzzv")
 vim.keymap.set('n', 'N', "Nzzzv")
 
+-- copy full file path to clipboard
+vim.keymap.set('n', '<leader>fp', ":let @+=expand('%:p')<CR>")
+
+-- copy file name to clipboard
+vim.keymap.set('n', '<leader>fn', ":let @+=expand('%:t')<CR>")
+
+-- copy relative path to clipboard
+vim.keymap.set('n', '<leader>fpr', ":let @+=expand('%')<CR>")
+
