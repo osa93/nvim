@@ -38,37 +38,43 @@ end)
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
+    -- Replace the language servers listed here
+    -- with the ones you want to install
+    ensure_installed = { 'tsserver', 'rust_analyzer', 'pyright' },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
+
+        -- this is the "custom handler" for `lua_ls`
+        lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+                settings = {
+                    Lua = {}
+                },
+                on_init = function(client)
+                    local uv = vim.uv or vim.loop
+                    local path = client.workspace_folders[1].name
+
+                    -- Don't do anything if there is a project local config
+                    if uv.fs_stat(path .. '/.luarc.json')
+                        or uv.fs_stat(path .. '/.luarc.jsonc')
+                    then
+                        return
+                    end
+
+                    -- Apply neovim specific settings
+                    local lua_opts = lsp_zero.nvim_lua_ls()
+
+                    client.config.settings.Lua = vim.tbl_deep_extend(
+                        'force',
+                        client.config.settings.Lua,
+                        lua_opts.settings.Lua
+                    )
+                end,
+            })
+        end,
     },
-})
-
-require('lspconfig').lua_ls.setup({
-    settings = {
-        Lua = {}
-    },
-    on_init = function(client)
-        local uv = vim.uv or vim.loop
-        local path = client.workspace_folders[1].name
-
-        -- Don't do anything if there is a project local config
-        if uv.fs_stat(path .. '/.luarc.json')
-            or uv.fs_stat(path .. '/.luarc.jsonc')
-        then
-            return
-        end
-
-        -- Apply neovim specific settings
-        local lua_opts = lsp_zero.nvim_lua_ls()
-
-        client.config.settings.Lua = vim.tbl_deep_extend(
-            'force',
-            client.config.settings.Lua,
-            lua_opts.settings.Lua
-        )
-    end,
 })
 
 -- Autocompletion config

@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 -- return to netrw
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pb", vim.cmd.Ex)
 
 -- copy to system clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
