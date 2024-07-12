@@ -16,7 +16,10 @@ return {
             auto_install = true,
 
             indent = {
-                enable = true
+                enable = true,
+                -- treesitter has a weird indentation behavior sometimes (especially when using a semmicolon)
+                -- Disable it for now. Would be nice to investigate.
+                disable = {"python"}
             },
 
             highlight = {
