@@ -51,16 +51,14 @@ return {
 
                 -- Override highlight groups (see ./lua/vscode/theme.lua)
                 group_overrides = {
-                    -- this supports the same val table as vim.api.nvim_set_hl
-                    -- use colors from this colorscheme by requiring vscode.colors!
-                    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+                    -- To see some of those colors, you can use :Telescope highlights
+                    CursorLineNr = { fg = '#EEEEEE', bg = 'NONE'},
+                    -- this sets class declaration to a proper color
+                    ["@constructor.python"] = { fg = c.vscBlueGreen, bg = 'NONE'},
                 }
             })
-            -- require('vscode').load()
 
             -- load the theme without affecting devicon colors.
-            vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
-            vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = 'white', bold = true })
             vim.cmd.colorscheme "vscode"
         end,
     },

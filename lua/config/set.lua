@@ -34,3 +34,11 @@ vim.opt.colorcolumn = "80"
 
 -- Line numbers etc in Netrw
 vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
+
+-- Indent settings
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- Without this setting, CursorLineNr coloring doesn't work
+vim.o.cursorline = true
+
