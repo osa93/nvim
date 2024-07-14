@@ -1,26 +1,5 @@
 return {
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- vim.cmd([[colorscheme tokyonight-storm]])
-        end,
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        lazy = false,
-        config = function()
-            require('rose-pine').setup({
-                styles = {
-                    italic = false,
-                },
-            })
-            -- vim.cmd([[colorscheme rose-pine]])
-        end
-    },
-    {
         "Mofiqul/vscode.nvim",
         lazy = false,
         priority = 1000,
@@ -52,14 +31,35 @@ return {
                 -- Override highlight groups (see ./lua/vscode/theme.lua)
                 group_overrides = {
                     -- To see some of those colors, you can use :Telescope highlights
-                    CursorLineNr = { fg = '#EEEEEE', bg = 'NONE'},
+                    CursorLineNr = { fg = '#EEEEEE', bg = 'NONE' },
                     -- this sets class declaration to a proper color
-                    ["@constructor.python"] = { fg = c.vscBlueGreen, bg = 'NONE'},
+                    ["@constructor.python"] = { fg = c.vscBlueGreen, bg = 'NONE' },
                 }
             })
 
             -- load the theme without affecting devicon colors.
             vim.cmd.colorscheme "vscode"
         end,
-    },
+    }
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         -- vim.cmd([[colorscheme tokyonight-storm]])
+    --     end,
+    -- },
+    -- {
+    --     "rose-pine/neovim",
+    --     name = "rose-pine",
+    --     lazy = false,
+    --     config = function()
+    --         require('rose-pine').setup({
+    --             styles = {
+    --                 italic = false,
+    --             },
+    --         })
+    --         -- vim.cmd([[colorscheme rose-pine]])
+    --     end
+    -- },
 }
