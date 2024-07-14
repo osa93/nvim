@@ -42,3 +42,9 @@ vim.opt.smartindent = true
 -- Without this setting, CursorLineNr coloring doesn't work
 vim.o.cursorline = true
 
+-- 0 means that the dir that you see in netrw is the current directory
+-- This let's you copy file within netrw window using cp
+vim.g.netrw_keepdir = 0
+
+-- Requested by commenter plugin
+vim.api.nvim_command("filetype plugin on")
