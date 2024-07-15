@@ -48,3 +48,8 @@ vim.g.netrw_keepdir = 0
 
 -- Requested by commenter plugin
 vim.api.nvim_command("filetype plugin on")
+
+-- Proper line wrapping
+vim.opt.wrapmargin = 0
+vim.opt.textwidth = 0
+vim.cmd('set nowrap')

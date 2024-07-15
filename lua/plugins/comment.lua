@@ -9,6 +9,7 @@ return {
         -- Enable trimming of trailing whitespace when uncommenting
         vim.g.NERDTrimTrailingWhitespace = 1
 
+        vim.g.NERDSpaceDelims = 1
         -- vim.g.NERDCustomDelimiters = {
         --     json = {
         --         left = "// ",
