@@ -32,8 +32,6 @@ return {
                 group_overrides = {
                     -- To see some of those colors, you can use :Telescope highlights
                     CursorLineNr = { fg = '#EEEEEE', bg = 'NONE' },
-                    -- this sets class declaration to a proper color
-                    ["@constructor.python"] = { fg = c.vscBlueGreen, bg = 'NONE' },
                 }
             })
 

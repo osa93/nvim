@@ -38,3 +38,16 @@ vim.keymap.set('n', '<leader>fn', ":let @+=expand('%:t')<CR>")
 -- copy relative path to clipboard
 vim.keymap.set('n', '<leader>fpr', ":let @+=expand('%')<CR>")
 
+-- remove whitespaces at the end of the line
+vim.keymap.set('n', '<leader>sr', [[:s/\s\+$//e<CR>]])
+
+-- show diagnostics message for a given line
+-- lua vim.diagnostic.open_float(0, {scope="line"})
+vim.keymap.set('n', '<leader>e', [[:lua vim.diagnostic.open_float(0, {scope="line"})<CR>]])
+
+-- remove whitespaces at the end of the line
+vim.keymap.set('n', '<leader>0', [["0p]])
+
+vim.keymap.set('n', 'sw', 'saiw', { remap = true })
+vim.keymap.set('n', 'sW', 'saiW', { remap = true })
+

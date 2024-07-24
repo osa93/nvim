@@ -53,3 +53,4 @@ vim.api.nvim_command("filetype plugin on")
 vim.opt.wrapmargin = 0
 vim.opt.textwidth = 0
 vim.cmd('set nowrap')
+

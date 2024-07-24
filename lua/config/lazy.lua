@@ -34,6 +34,8 @@ lsp_zero.on_attach(function(_, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 --- if you want to know more about lsp-zero and mason.nvim
 --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
@@ -43,7 +45,9 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'tsserver', 'rust_analyzer', 'pyright' },
     handlers = {
         function(server_name)
-            require('lspconfig')[server_name].setup({})
+            require('lspconfig')[server_name].setup({
+                capabilities = lsp_capabilities
+            })
         end,
 
         -- this is the "custom handler" for `lua_ls`
@@ -80,8 +84,8 @@ require('mason-lspconfig').setup({
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.black, -- python formatter
-        null_ls.builtins.formatting.isort, -- python import sort
+        null_ls.builtins.formatting.black,   -- python formatter
+        null_ls.builtins.formatting.isort,   -- python import sort
         null_ls.builtins.diagnostics.flake8, -- python linter
         -- null_ls.builtins.formatting.stylua, -- lua formatter
         -- null_ls.builtins.diagnostics.luacheck, -- lua linter
@@ -92,7 +96,16 @@ null_ls.setup({
 local cmp = require('cmp')
 local cmp_action = lsp_zero.cmp_action()
 
+require('luasnip.loaders.from_vscode').lazy_load()
+-- local cmp_select = {behavior = cmp.SelectBehavior.Select}
+
 cmp.setup({
+    sources = {
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip', keyword_length = 2 },
+        { name = 'buffer',  keyword_length = 3 },
+    },
     mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
@@ -107,6 +120,13 @@ cmp.setup({
         -- Scroll up and down in the completion documentation
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+        -- those are from primagean. Check if they are useful to you.
+        -- NOTE: you'll need to uncomment cmp_select initialization above.
+        -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        -- ['<C-Space>'] = cmp.mapping.complete(),
     }),
     snippet = {
         expand = function(args)
@@ -114,3 +134,4 @@ cmp.setup({
         end,
     },
 })
+
