@@ -52,5 +52,9 @@ return {
         }
 
         vim.treesitter.language.register("templ", "templ")
+
+        vim.cmd([[
+            autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+        ]])
     end
 }

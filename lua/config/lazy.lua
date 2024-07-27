@@ -46,7 +46,7 @@ require('mason-lspconfig').setup({
         'tsserver',
         'rust_analyzer',
         'pyright',
-        'terraform-ls',
+        'terraformls',
     },
     handlers = {
         function(server_name)
