@@ -5,7 +5,14 @@ return {
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all"
             ensure_installed = {
-                "vimdoc", "c", "lua", "rust", "bash", "python"
+                "vimdoc",
+                "c",
+                "lua",
+                "rust",
+                "bash",
+                "python",
+                "terraform",
+                "hcl"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -19,7 +26,7 @@ return {
                 enable = true,
                 -- treesitter has a weird indentation behavior sometimes (especially when using a semmicolon)
                 -- Disable it for now. Would be nice to investigate.
-                disable = {"python"}
+                disable = { "python" }
             },
 
             highlight = {
@@ -39,7 +46,7 @@ return {
         treesitter_parser_config.templ = {
             install_info = {
                 url = "https://github.com/vrischmann/tree-sitter-templ.git",
-                files = {"src/parser.c", "src/scanner.c"},
+                files = { "src/parser.c", "src/scanner.c" },
                 branch = "master",
             },
         }
@@ -47,4 +54,3 @@ return {
         vim.treesitter.language.register("templ", "templ")
     end
 }
-

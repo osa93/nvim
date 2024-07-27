@@ -42,7 +42,12 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
-    ensure_installed = { 'tsserver', 'rust_analyzer', 'pyright' },
+    ensure_installed = {
+        'tsserver',
+        'rust_analyzer',
+        'pyright',
+        'terraform-ls',
+    },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({
@@ -134,4 +139,3 @@ cmp.setup({
         end,
     },
 })
-
