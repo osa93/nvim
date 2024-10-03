@@ -51,3 +51,8 @@ vim.keymap.set('n', '<leader>0', [["0p]])
 vim.keymap.set('n', 'sw', 'saiw', { remap = true })
 vim.keymap.set('n', 'sW', 'saiW', { remap = true })
 
+-- put highlighted search into search/replace
+vim.keymap.set("v", "<leader>r", [["hy:%s/\V<C-r>h/<C-r>h/gI<Left><Left><left>]])
+
+-- make currently open file executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

@@ -47,6 +47,8 @@ require('mason-lspconfig').setup({
         'rust_analyzer',
         'pyright',
         'terraformls',
+        'bashls',
+        'shfmt',
     },
     handlers = {
         function(server_name)
